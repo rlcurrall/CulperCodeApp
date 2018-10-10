@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+  <style>
+    #app {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <md-app md-waterfall md-mode="fixed">
+      <md-app-toolbar class="md-primary">
+        <div class="md-toolbar-row">
+            <span class="md-title">The Culper Code</span>
+        </div>
+      </md-app-toolbar>
+
+      <md-app-content class="full-height">
+        <md-tabs md-sync-routes md-alignment="centered">
+          <md-tab id="tab-home" md-label="Home" to="/components/tabs/home">
+            <p>
+              Encrypt or decrypt a message using the Culper Code.
+            </p>
+            <md-field>
+              <label>Plain Text</label>
+              <md-textarea v-model="message" v-on:input="encryptMessage"></md-textarea>
+            </md-field>
+            <md-field>
+              <label>Encrypted Message</label>
+              <md-textarea v-model="output" v-on:input="decryptMessage"></md-textarea>
+            </md-field>
+          </md-tab>
+          <md-tab id="tab-about" md-label="About" to="/components/tabs/about">
+            <p>Under the orders of General George Washington, Major Benjamin Tallmadge organized the Culper Spy Ring in 
+              1778 to gather information on British troop movements, fortifications, and military plans in the New York area.
+            </p>
+
+            <p>Informants used fake names and a numerical code book consisting of seven hundred and sixty-three numbers 
+              representing words, names, and places to communicate their information. Developed by Tallmadge, the Culper 
+              Code Book was essential in protecting the vital communications and identities of this important intelligence 
+              gathering group. </p>
+            <hr>
+            <div id="example" style="margin: 0 auto; max-width: 704px">
+              <md-card v-for="(code, key) in codec">
+                <md-card-content>
+                  <b>Key</b><b style="float: right; width: 50%">Value</b><br>
+                  <span>{{key}}</span>
+                  <span style="float: right; width: 50%">{{code}}</span>
+                </md-card-content>
+              </md-card>
+            </div>
+          </md-tab>
+        </md-tabs>
+      </md-app-content>
+    </md-app>
+  </div>
+  
+  <script src="./scripts/vue/dist/vue.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue-material@beta"></script>
+
+  <style lang="scss" scoped>    
+      .md-card {
+        width: 320px;
+        margin: 4px;
+        display: inline-block;
+        vertical-align: top;
+      }
+    </style>
+  <script src="./app.js"></script>
+
+</body>
+</html>

@@ -45,6 +45,9 @@ new Vue({
                     this.message = res.trim();
                 });
             }
+        },
+        openPrimary: function () {
+            window.open("https://www.mountvernon.org/education/primary-sources-2/article/culper-spy-ring-code/", "_blank");
         }
     },
     mounted: function () {

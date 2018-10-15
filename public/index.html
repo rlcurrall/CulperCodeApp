@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to Vue</title>
+  <title>Culper Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link rel="icon" type="image/png" href="./images/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
   <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
   <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
   <style>
     #app {
       height: 100vh;
+    }
+
+    .cardContainer {
+      display: block;
+      width: 100%;
+    }
+
+    .myCard {
+      display: block;
+      width: auto;
+      max-width: 332px;
+      margin: 0 auto;
+    }
+
+    .myCard:hover {
+      cursor: pointer;
     }
   </style>
 </head>
@@ -44,7 +61,24 @@
             <p>Informants used fake names and a numerical code book consisting of seven hundred and sixty-three numbers 
               representing words, names, and places to communicate their information. Developed by Tallmadge, the Culper 
               Code Book was essential in protecting the vital communications and identities of this important intelligence 
-              gathering group. </p>
+              gathering group. 
+            </p>
+            
+            <div class="md-layout-item cardContainer">
+              <div class="myCard" v-on:click="openPrimary">
+                  <md-card class="md-primary" style="margin: 0 auto; display: block;">
+                    <md-card-media md-ratio="4:3">
+                      <img src="/images/culpercode_01.jpg" alt="Culper Code Book">
+                    </md-card-media>
+              
+                    <md-card-header>
+                      <div class="md-title">Culper Code</div>
+                      <div class="md-subhead">Primary Source</div>
+                    </md-card-header>
+                  </md-card>
+              </div>
+            </div>
+
             <hr>
             <div id="example" style="margin: 0 auto; max-width: 704px">
               <md-card v-for="(code, key) in codec">
